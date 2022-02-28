@@ -18,11 +18,8 @@ class Program
 
         List<int> ListIdInt = listId.SelectMany(s=>s.Split(',').Select(int.Parse)).ToList();
 
-        for (int i = 0; i < ListIdInt.Count; i++)
-        {
-            if (i % 2 == 0) listId1.Add(ListIdInt[i]);
-            if (i % 2 == 1) listId2.Add(ListIdInt[i]);
-        }
+        for (int i = 0; i < ListIdInt.Count; i = i + 2) listId1.Add(ListIdInt[i]);
+        for (int i = 1; i < ListIdInt.Count; i = i + 2) listId2.Add(ListIdInt[i]);
 
         foreach (string i in listId) Console.WriteLine("Total List :" + i);
         foreach (int i in listId1) Console.WriteLine("List 1 :" + i);
